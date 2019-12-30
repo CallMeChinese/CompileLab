@@ -1,0 +1,5 @@
+s->a
+a->b c
+b->a c
+c->ID
+c->EPSILON
