@@ -13,6 +13,7 @@ public class token {
         return String.format("<%3d,%s>", this.index, this.symbol);
     }
 
+    // FIXME: note that the function need to be rewritten
     public boolean equals(token another) {
         if (another.index == this.index &&
             another.symbol.equals(this.symbol)) {

@@ -11,9 +11,4 @@ public class expression {
     public expression() {
         this.rPart = new ArrayList<token>();
     }
-
-    public boolean equals(expression another) {
-
-        return false;
-    }
 }

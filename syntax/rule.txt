@@ -1,5 +1,7 @@
-s->a
-a->b c
-b->a c
-c->ID
-c->EPSILON
+s->e
+e->e + t
+e->t
+t->t * f
+t->f
+f->( e )
+f->ID
