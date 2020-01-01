@@ -12,16 +12,9 @@
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-lex<Lab>",
+            "name": "Debug (Launch)-Lab<Lab>",
             "request": "launch",
-            "mainClass": "com.lexer.lex",
-            "projectName": "Lab"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-parser<Lab>",
-            "request": "launch",
-            "mainClass": "com.syntax.parser",
+            "mainClass": "com.Lab",
             "projectName": "Lab"
         }
     ]

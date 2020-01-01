@@ -227,19 +227,19 @@ public class parser {
         return 0;
     }
 
-    public static void main(String[] args) throws Exception {
-        parser pa = new parser();
-        pa.MakeAllGroups();
-        pa.MakePPT();
-        List<token> seq = new ArrayList<token>();
-        seq.add(pa.ya.terSyb.get(2));
-        seq.add(pa.ya.terSyb.get(2));
-        seq.add(pa.ya.terSyb.get(2));
-        seq.add(pa.ya.terSyb.get(2));
-        seq.add(pa.ya.terSyb.get(3));
-        seq.add(pa.ya.terSyb.get(3));
-        seq.add(pa.ya.terSyb.get(1));
-        pa.parse(seq);
-        System.out.println(pa.tableCell.size());
-    }
+    // public static void main(String[] args) throws Exception {
+    //     parser pa = new parser();
+    //     pa.MakeAllGroups();
+    //     pa.MakePPT();
+    //     List<token> seq = new ArrayList<token>();
+    //     seq.add(pa.ya.terSyb.get(2));
+    //     seq.add(pa.ya.terSyb.get(2));
+    //     seq.add(pa.ya.terSyb.get(2));
+    //     seq.add(pa.ya.terSyb.get(2));
+    //     seq.add(pa.ya.terSyb.get(3));
+    //     seq.add(pa.ya.terSyb.get(3));
+    //     seq.add(pa.ya.terSyb.get(1));
+    //     pa.parse(seq);
+    //     System.out.println(pa.tableCell.size());
+    // }
 }
