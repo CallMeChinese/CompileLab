@@ -1,9 +1,7 @@
-package syntax;
+package com.syntax;
 
-import syntax.token;
-import syntax.expression;
-import java.util.ArrayList;
-import java.util.List;
+import com.token;
+import com.syntax.expression;
 
 public class item {
     public expression expr;

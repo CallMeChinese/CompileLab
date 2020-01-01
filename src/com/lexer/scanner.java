@@ -1,7 +1,7 @@
-package lexer;
+package com.lexer;
 
-import lexer.token;
-import lexer.constoken;
+import com.token;
+import com.constoken;
 import java.util.ArrayList;
 import java.util.List;
 

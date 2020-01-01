@@ -1,6 +1,6 @@
-package lexer;
+package com;
 
-import lexer.token;
+import com.token;
 
 public class constoken {
 

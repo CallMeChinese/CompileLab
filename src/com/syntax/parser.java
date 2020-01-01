@@ -1,15 +1,15 @@
-package syntax;
+package com.syntax;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import syntax.token;
-import syntax.expression;
-import syntax.yacc;
-import syntax.item;
-import syntax.group;
-import syntax.operate;
+import com.token;
+import com.syntax.expression;
+import com.syntax.yacc;
+import com.syntax.item;
+import com.syntax.group;
+import com.syntax.operate;
 
 public class parser {
     public List<group> states;

@@ -1,6 +1,6 @@
-package syntax;
+package com.syntax;
 
-import syntax.token;
+import com.token;
 
 public class edge {
     int begIndex;

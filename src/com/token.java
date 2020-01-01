@@ -1,4 +1,4 @@
-package syntax;
+package com;
 
 public class token {
     public int index;

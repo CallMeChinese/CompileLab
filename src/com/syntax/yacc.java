@@ -1,7 +1,7 @@
-package syntax;
+package com.syntax;
 
-import syntax.token;
-import syntax.expression;
+import com.token;
+import com.syntax.expression;
 import java.util.regex.*;
 import java.util.List;
 import java.util.ArrayList;

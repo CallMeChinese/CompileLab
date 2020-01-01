@@ -1,4 +1,0 @@
-t->s
-s->c c
-c->ID c
-c->STRING

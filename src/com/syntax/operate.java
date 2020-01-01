@@ -1,7 +1,6 @@
-package syntax;
+package com.syntax;
 
-import syntax.token;
-import syntax.*;
+import com.token;
 
 /**
  * 

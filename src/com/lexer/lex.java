@@ -1,13 +1,20 @@
-package lexer;
+package com.lexer;
 
-import lexer.token;
-import lexer.scanner;
+import com.token;
+import com.lexer.scanner;
 import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
 
 public class lex {
-    public static void main(String[] args) throws Exception {
+    public String filePath;
+
+    public lex(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public List<token> analyse() throws Exception{
+        List<token> myTokens = new ArrayList<token>();
         File file = new File("main.c");
         if (!file.exists()) {
             System.out.println("No such file");
@@ -18,12 +25,9 @@ public class lex {
             fis.read(b);
             String myText = new String(b);
             fis.close();
-            List<token> myTokens = new ArrayList<token>();
             scanner myScanner = new scanner(myText);
             myTokens = myScanner.scan();
-            for (int i = 0; i < myTokens.size(); ++i) {
-                System.out.println(myTokens.get(i));
-            }
         }
+        return myTokens;
     }
 }

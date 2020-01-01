@@ -1,6 +1,6 @@
-package syntax;
+package com.syntax;
 
-import syntax.token;
+import com.token;
 import java.util.List;
 import java.util.ArrayList;
 

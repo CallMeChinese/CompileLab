@@ -1,8 +1,6 @@
-package syntax;
+package com.syntax;
 
-import syntax.token;
-import syntax.expression;
-import syntax.item;
+import com.syntax.item;
 import java.util.ArrayList;
 import java.util.List;
 
