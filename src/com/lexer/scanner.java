@@ -2021,8 +2021,6 @@ public class scanner {
                 }
 
                 if (state == 0) {
-                    token myToken = new token(49, "SHORT");
-                    myTokens.add(myToken);
                     myTokens.add(constoken.SHORT);
                     this.lPoint = this.rPoint;
                 } else {

@@ -13,14 +13,16 @@ declv->type ID ;
 declv->type ID = expr ;
 funcs->func funcs
 funcs->EPSILON
-func->type ID ( argv ) { stmts ret }
+func->type ID ( argv ) { stmts }
 stmts->stmt stmts
 stmts->EPSILON
-stmt->asgn
+stmt->declv
+stmt->asgn ;
 stmt->loopf
 stmt->loopw
 stmt->seli
-asgn->ID = expr ;
+stmt->ret
+asgn->ID = expr
 loopf->FOR ( asgn ; judge ; asgn ) { stmts }
 loopw->WHILE ( judge ) { stmts }
 seli->IF ( judge ) { stmts } ELSE sele
@@ -38,6 +40,7 @@ fact->( expr )
 fact->value
 value->INTEGER
 value->call
+value->ID
 call->ID ( parav )
 parav->paras
 parav->EPSILON
@@ -54,7 +57,7 @@ bterm->bfact && bterm
 bfact->! bfact
 bfact->( bexpr )
 bfact->expr cmpop expr
-main->INT MAIN ( ) { stmts ret }
+main->type MAIN ( ) { stmts }
 type->CHAR
 type->SHORT
 type->INT

@@ -11,4 +11,13 @@ public class expression {
     public expression() {
         this.rPart = new ArrayList<token>();
     }
+
+    public String toString() {
+        String answer = new String();
+        answer = answer + this.lPart.toString() + " -> ";
+        for (int i = 0; i < rPart.size(); ++i) {
+            answer += (rPart.get(i).toString() +" ");
+        }
+        return answer;
+    }
 }

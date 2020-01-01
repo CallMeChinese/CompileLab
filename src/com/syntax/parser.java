@@ -142,7 +142,7 @@ public class parser {
                     operate myOpt = new operate(i, 1, index, myItem.prefix);
                     if (index == 1 && myItem.prefix == this.ya.terSyb.get(1)) {
                         myOpt.opt = 2;
-                        System.out.println("Accept from reduction");
+                        // System.out.println("Accept from reduction");
                     }
                     this.tableCell.add(myOpt);
                 }
@@ -194,6 +194,7 @@ public class parser {
                     // TODO: Yeah, we can operate now
                     switch (myOpt.opt) {
                         case 0: {
+                            System.out.println("Shift in token: " + myOpt.switcher.toString() + ", switch to state: " + myOpt.optObjIndex);
                             parseState.push(myOpt.optObjIndex);
                             parseToken.push(point);
                             index += 1;
@@ -201,6 +202,7 @@ public class parser {
                             break;
                         }
                         case 1: {
+                            System.out.println("Reduction with expression: " + ya.prodExpr.get(myOpt.optObjIndex).toString());
                             expression expr = ya.prodExpr.get(myOpt.optObjIndex);
                             // FIXME: if the right part of the expression is epsilon, remember to set count as 0
                             int count = expr.rPart.size();
@@ -218,6 +220,7 @@ public class parser {
                                 if (tempOpt.begState == parseState.peek() &&
                                     tempOpt.opt == 3 &&
                                     tempOpt.switcher == expr.lPart) {
+                                    System.out.println("Goto state:" + tempOpt.optObjIndex);
                                     parseState.push(tempOpt.optObjIndex);
                                     parseToken.push(expr.lPart);
                                     break;
@@ -248,20 +251,4 @@ public class parser {
         }
         return 0;
     }
-
-    // public static void main(String[] args) throws Exception {
-    //     parser pa = new parser();
-    //     pa.MakeAllGroups();
-    //     pa.MakePPT();
-    //     List<token> seq = new ArrayList<token>();
-    //     seq.add(pa.ya.terSyb.get(2));
-    //     seq.add(pa.ya.terSyb.get(2));
-    //     seq.add(pa.ya.terSyb.get(2));
-    //     seq.add(pa.ya.terSyb.get(2));
-    //     seq.add(pa.ya.terSyb.get(3));
-    //     seq.add(pa.ya.terSyb.get(3));
-    //     seq.add(pa.ya.terSyb.get(1));
-    //     pa.parse(seq);
-    //     System.out.println(pa.tableCell.size());
-    // }
 }
