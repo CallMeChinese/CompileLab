@@ -40,10 +40,12 @@
 
 实现的符号有：
 
-TODO: 所有的index需要+1，因为要给epsilon留下空间
+TODO: 所有的index需要+2，因为要给epsilon and dollar r留下空间
 
 |index  |symbol |token  |
 |-------|-------|-------|
+|-2     |epsilon|EPSILON|
+|-1     |dollarr|DOLLARR|
 |0      |{      |lB     |
 |1      |}      |rB     |
 |2      |[      |lb     |

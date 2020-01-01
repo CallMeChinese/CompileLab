@@ -1,6 +1,7 @@
 package lexer;
 
 import lexer.token;
+import lexer.constoken;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,8 +113,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(0, "{");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.LBRACE);
                         this.lPoint = this.rPoint;
                     }
                     break;
@@ -123,8 +123,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(1, "}");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.RBRACE);
                         this.lPoint = this.rPoint;
                     }
                     break;
@@ -134,8 +133,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(2, "[");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.LBRACKET);
                         this.lPoint = this.rPoint;
                     }
                     break;
@@ -145,8 +143,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(3, "]");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.RBRACKET);
                         this.lPoint = this.rPoint;
                     }
                     break;
@@ -156,8 +153,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(4, "(");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.LCURVE);
                         this.lPoint = this.rPoint;
                     }
                     break;
@@ -167,8 +163,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(5, ")");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.RCURVE);
                         this.lPoint = this.rPoint;
                     }
                     break;
@@ -180,8 +175,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(6, ">");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.GREAT);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -196,8 +190,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(7, "<");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.LESS);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -211,8 +204,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(26, "!");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.NOT);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -226,8 +218,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(27, "=");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.ASSIGN);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -242,8 +233,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(12, "+");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.ADD);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -258,8 +248,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(13, "-");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.SUB);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -273,8 +262,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(14, "*");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.MULTI);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -288,8 +276,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(15, "/");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.DIVIDE);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -303,8 +290,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(16, "%");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.MOD);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -318,8 +304,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(29, "&");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.BAND);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -333,8 +318,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(30, "|");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.BOR);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -347,8 +331,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(28, "^");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.BXOR);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -365,9 +348,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -386,9 +370,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -406,9 +391,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -425,9 +411,10 @@ public class scanner {
                             }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -444,9 +431,10 @@ public class scanner {
                             }
                         }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -464,9 +452,10 @@ public class scanner {
                             }
                         }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -483,9 +472,10 @@ public class scanner {
                             }
                         }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -502,9 +492,10 @@ public class scanner {
                             }
                         }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -521,9 +512,10 @@ public class scanner {
                             }
                         }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -541,9 +533,10 @@ public class scanner {
                             }
                         }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -560,9 +553,10 @@ public class scanner {
                             }
                         }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -579,9 +573,10 @@ public class scanner {
                             }
                         }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -597,9 +592,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -615,9 +611,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(33, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(33, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.INTEGER);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -630,8 +627,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(8, ">=");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.GREATEQ);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -644,8 +640,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(32, ">>");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.BRMOVE);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -658,8 +653,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(9, "<=");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.LESSEQ);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -672,8 +666,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(31, "<<");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.BLMOVE);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -686,8 +679,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(10, "!=");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.NOTEQ);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -700,8 +692,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(11, "==");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.EQ);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -714,8 +705,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(17, "++");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.INCREASE);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -728,8 +718,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(19, "+=");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.SELFADD);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -742,8 +731,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(18, "--");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.DECREASE);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -756,8 +744,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(20, "-=");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.SELFSUb);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -770,8 +757,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(21, "*=");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.SELFMULTI);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -784,8 +770,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(22, "/=");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.SELFDIVIDE);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -798,8 +783,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(23, "%=");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.SELFMOD);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -812,8 +796,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(24, "&&");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.AND);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -826,8 +809,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(25, "||");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.OR);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -844,9 +826,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -863,9 +846,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -882,9 +866,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -901,9 +886,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -920,8 +906,7 @@ public class scanner {
                     }
                     // TODO: chnage the token as "do"
                     if (state == 0) {
-                        token myToken = new token(41, "DO");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.DO);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -938,9 +923,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -957,9 +943,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -976,8 +963,7 @@ public class scanner {
                     }
                     // TODO: change the token as "if"
                     if (state == 0) {
-                        token myToken = new token(44, "IF");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.IF);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -994,9 +980,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1013,9 +1000,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1032,9 +1020,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1051,9 +1040,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1070,9 +1060,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1089,9 +1080,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1108,9 +1100,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1127,9 +1120,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1146,9 +1140,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1165,9 +1160,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1184,9 +1180,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1203,9 +1200,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1222,9 +1220,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1241,8 +1240,7 @@ public class scanner {
                     }
                     // TODO: change the token as "for"
                     if (state == 0) {
-                        token myToken = new token(43, "FOR");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.FOR);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1259,8 +1257,7 @@ public class scanner {
                     }
                     // TODO: change the token as "int"
                     if (state == 0) {
-                        token myToken = new token(45, "INT");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.INT);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1277,9 +1274,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1296,9 +1294,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1315,9 +1314,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1334,9 +1334,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1353,9 +1354,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1372,9 +1374,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1391,9 +1394,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1410,9 +1414,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1429,8 +1434,7 @@ public class scanner {
                     }
                     // TODO: change the token as "case"
                     if (state == 0) {
-                        token myToken = new token(37, "CASE");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.CASE);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1447,9 +1451,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1466,9 +1471,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1485,8 +1491,7 @@ public class scanner {
                     }
                     // TODO: change the token as "else"
                     if (state == 0) {
-                        token myToken = new token(42, "ELSE");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.ELSE);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1503,8 +1508,7 @@ public class scanner {
                     }
                     // TODO: change the token as long
                     if (state == 0) {
-                        token myToken = new token(46, "LONG");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.LONG);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1521,8 +1525,7 @@ public class scanner {
                     }
                     // TODO: change the token as main
                     if (state == 0) {
-                        token myToken = new token(47, "MAIN");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.MAIN);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1539,9 +1542,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1558,9 +1562,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1577,9 +1582,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1596,9 +1602,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1615,9 +1622,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1634,8 +1642,7 @@ public class scanner {
                     }
                     // TODO: change the token as "break"
                     if (state == 0) {
-                        token myToken = new token(36, "BREAK");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.BREAK);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1652,9 +1659,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1671,9 +1679,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1690,9 +1699,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1711,6 +1721,7 @@ public class scanner {
                     if (state == 0) {
                         token myToken = new token(49, "SHORT");
                         myTokens.add(myToken);
+                        myTokens.add(constoken.SHORT);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1727,9 +1738,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1746,9 +1758,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1765,8 +1778,7 @@ public class scanner {
                     }
                     // TODO: change the token as "while"
                     if (state == 0) {
-                        token myToken = new token(52, "WHILE");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.WHILE);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1783,9 +1795,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1802,9 +1815,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1821,8 +1835,7 @@ public class scanner {
                     }
                     // TODO: change the token as "return"
                     if (state == 0) {
-                        token myToken = new token(48, "RETURN");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.RETURN);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1839,8 +1852,7 @@ public class scanner {
                     }
                     // TODO: change the token as "switch"
                     if (state == 0) {
-                        token myToken = new token(50, "SWITCH");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.SWITCH);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1857,9 +1869,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1876,9 +1889,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1895,8 +1909,7 @@ public class scanner {
                     }
                     // TODO: change the token as "default"
                     if (state == 0) {
-                        token myToken = new token(40, "DEFAULT");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.DEFAULT);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1913,9 +1926,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1932,8 +1946,7 @@ public class scanner {
                     }
                     // TODO: change the token as "continue"
                     if (state == 0) {
-                        token myToken = new token(39, "CONTINUE");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.CONTINUE);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1950,8 +1963,7 @@ public class scanner {
                     }
                     // TODO: change the token as "unsigned"
                     if (state == 0) {
-                        token myToken = new token(51, "UNSIGNED");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.UNSIGNED);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1968,9 +1980,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -1987,9 +2000,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(35, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(35, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.ID);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -2006,8 +2020,7 @@ public class scanner {
                     }
                     // TODO:  change the token as "char"
                     if (state == 0) {
-                        token myToken = new token(38, "CHAR");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.CHAR);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -2020,8 +2033,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(53, ";");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.SEMICOLON);
                         this.lPoint = this.rPoint;
                     }
                     break;
@@ -2051,9 +2063,10 @@ public class scanner {
                         }
                     }
                     if (state == 0) {
-                        String name = this.text.substring(this.lPoint, this.rPoint);
-                        token myToken = new token(54, name);
-                        myTokens.add(myToken);
+                        // String name = this.text.substring(this.lPoint, this.rPoint);
+                        // token myToken = new token(54, name);
+                        // myTokens.add(myToken);
+                        myTokens.add(constoken.CHARS);
                         this.lPoint = this.rPoint;
                     }
                     else {
@@ -2066,8 +2079,7 @@ public class scanner {
                         default: state = 0; break;
                     }
                     if (state == 0) {
-                        token myToken = new token(55, ",");
-                        myTokens.add(myToken);
+                        myTokens.add(constoken.COMMA);
                         this.lPoint = this.rPoint;
                     }
                     break;

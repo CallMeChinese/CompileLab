@@ -139,6 +139,10 @@ public class parser {
                         }
                     }
                     operate myOpt = new operate(i, 1, index, myItem.prefix);
+                    if (index == 1 && myItem.prefix == this.ya.terSyb.get(1)) {
+                        myOpt.opt = 2;
+                        System.out.println("Accept from reduction");
+                    }
                     this.tableCell.add(myOpt);
                 }
             }
@@ -147,9 +151,6 @@ public class parser {
             operate myOpt = new operate(jumpEdge.get(i).begIndex, 0, jumpEdge.get(i).endIndex, jumpEdge.get(i).switcher);
             if (jumpEdge.get(i).switcher.index < 0) {
                 myOpt.opt = 3;
-            }
-            else if (jumpEdge.get(i).switcher == ya.terSyb.get(1)) {
-                myOpt.opt = 2;
             }
             else {
 
@@ -160,13 +161,14 @@ public class parser {
     }
 
     public int parse(List<token> tokenSeq) {
+        boolean isAcc = false;
         int index = 0;
         token point = tokenSeq.get(index);
         Stack<token> parseToken = new Stack<token>();
         Stack<Integer> parseState = new Stack<Integer>();
         parseState.push(0);
 
-        while (true) {
+        while (index < tokenSeq.size()) {
             for (int i = 0; i < this.tableCell.size(); ++i) {
                 operate myOpt = this.tableCell.get(i);
                 if (myOpt.begState == parseState.peek() &&
@@ -196,12 +198,14 @@ public class parser {
                                     tempOpt.switcher == expr.lPart) {
                                     parseState.push(tempOpt.optObjIndex);
                                     parseToken.push(expr.lPart);
+                                    break;
                                 }
                             }
                             break;
                         }
                         case 2: {
                             System.out.println("Parse success!");
+                            isAcc = true;
                             break;
                         }
                         case 3: {
@@ -216,7 +220,9 @@ public class parser {
                     break;
                 }
             }
-            break;
+            if (isAcc) {
+                break;
+            }
         }
         return 0;
     }
@@ -225,6 +231,15 @@ public class parser {
         parser pa = new parser();
         pa.MakeAllGroups();
         pa.MakePPT();
+        List<token> seq = new ArrayList<token>();
+        seq.add(pa.ya.terSyb.get(2));
+        seq.add(pa.ya.terSyb.get(2));
+        seq.add(pa.ya.terSyb.get(2));
+        seq.add(pa.ya.terSyb.get(2));
+        seq.add(pa.ya.terSyb.get(3));
+        seq.add(pa.ya.terSyb.get(3));
+        seq.add(pa.ya.terSyb.get(1));
+        pa.parse(seq);
         System.out.println(pa.tableCell.size());
     }
 }
