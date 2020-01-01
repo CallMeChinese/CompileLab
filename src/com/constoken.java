@@ -1,5 +1,7 @@
 package com;
 
+import java.util.Arrays;
+import java.util.List;
 import com.token;
 
 public class constoken {
@@ -63,4 +65,18 @@ public class constoken {
     public static final token CHARS = new token(56, "CHARS");
     public static final token COMMA = new token(57, ",");
 
+    public static final List<token> terSybList = Arrays.asList(
+        EPSILON, DOLLARR, LBRACE, RBRACE, LBRACKET, 
+        RBRACKET, LCURVE, RCURVE, GREAT, LESS, 
+        GREATEQ, LESSEQ, NOTEQ, EQ, ADD, 
+        SUB, MULTI, DIVIDE, MOD, INCREASE, 
+        DECREASE, SELFADD, SELFSUb, SELFMULTI, SELFDIVIDE, 
+        SELFMOD, AND, OR, NOT, ASSIGN, 
+        BXOR, BAND, BOR, BLMOVE, BRMOVE, 
+        INTEGER, STRING, ID, BREAK, CASE, 
+        CHAR, CONTINUE, DEFAULT, DO, ELSE, 
+        FOR, IF, INT, LONG, MAIN, 
+        RETURN, SHORT, SWITCH, UNSIGNED, WHILE, 
+        SEMICOLON, CHARS, COMMA
+    );
 }

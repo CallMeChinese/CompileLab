@@ -1,0 +1,67 @@
+s->pro
+pro->decls funcs main
+decls->declf decls
+decls->declv decls
+decls->EPSILON
+declf->type ID ( argv ) ;
+argv->args
+argv->EPSILON
+args->arg , args
+args->arg
+arg->type ID
+declv->type ID ;
+declv->type ID = expr ;
+funcs->func funcs
+funcs->EPSILON
+func->type ID ( argv ) { stmts ret }
+stmts->stmt stmts
+stmts->EPSILON
+stmt->asgn
+stmt->loopf
+stmt->loopw
+stmt->seli
+asgn->ID = expr ;
+loopf->FOR ( asgn ; judge ; asgn ) { stmts }
+loopw->WHILE ( judge ) { stmts }
+seli->IF ( judge ) { stmts } ELSE sele
+sele->seli
+sele->{ stmts }
+ret->RETURN expr ;
+expr->term
+expr->term + expr
+expr->term - expr
+term->fact
+term->fact * term
+term->fact / term
+term->fact % term
+fact->( expr )
+fact->value
+value->INTEGER
+value->call
+call->ID ( parav )
+parav->paras
+parav->EPSILON
+paras->para , paras
+paras->para
+para->ID
+para->INTEGER
+para->STRING
+judge->bexpr
+bexpr->bterm
+bexpr->bterm || bexpr
+bterm->bfact
+bterm->bfact && bterm
+bfact->! bfact
+bfact->( bexpr )
+bfact->expr cmpop expr
+main->INT MAIN ( ) { stmts ret }
+type->CHAR
+type->SHORT
+type->INT
+type->LONG
+cmpop->>=
+cmpop->>
+cmpop-><=
+cmpop-><
+cmpop->==
+cmpop->!=

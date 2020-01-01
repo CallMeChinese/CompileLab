@@ -1,6 +1,7 @@
 package com.lexer;
 
 import com.token;
+import com.constoken;
 import com.lexer.scanner;
 import java.io.*;
 import java.util.List;
@@ -27,6 +28,7 @@ public class lex {
             fis.close();
             scanner myScanner = new scanner(myText);
             myTokens = myScanner.scan();
+            myTokens.add(constoken.terSybList.get(1));
         }
         return myTokens;
     }

@@ -3,6 +3,7 @@ package com.syntax;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import java.io.*;
 
 import com.token;
 import com.syntax.expression;
@@ -160,6 +161,23 @@ public class parser {
         return 0;
     }
 
+    public int ExportPPT() {
+        File file = new File("PPT.txt");
+        try {
+            FileWriter out = new FileWriter(file);
+            BufferedWriter writer = new BufferedWriter(out);
+            for (int i = 0; i < this.tableCell.size(); ++i) {
+                writer.write(this.tableCell.get(i).toString());
+                writer.flush();
+            }
+            writer.close();
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+        
+        return 0;
+    }
+
     public int parse(List<token> tokenSeq) {
         boolean isAcc = false;
         int index = 0;
@@ -184,7 +202,11 @@ public class parser {
                         }
                         case 1: {
                             expression expr = ya.prodExpr.get(myOpt.optObjIndex);
+                            // FIXME: if the right part of the expression is epsilon, remember to set count as 0
                             int count = expr.rPart.size();
+                            if (count == 1 && expr.rPart.get(0) == ya.terSyb.get(0)) {
+                                count = 0;
+                            }
                             for (int j = 0; j < count; ++j) {
                                 if (parseToken.size() > 0) {
                                     parseToken.pop();

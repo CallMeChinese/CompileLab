@@ -27,4 +27,9 @@ public class operate {
         this.optObjIndex = optObjIndex;
         this.switcher = switcher;
     }
+
+    public String toString() {
+        String answer = String.format("%d|%d|%d|%s\n", begState, opt, optObjIndex, switcher.toString());
+        return answer;
+    }
 }

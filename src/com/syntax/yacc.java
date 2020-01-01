@@ -1,6 +1,7 @@
 package com.syntax;
 
 import com.token;
+import com.constoken;
 import com.syntax.expression;
 import java.util.regex.*;
 import java.util.List;
@@ -16,8 +17,8 @@ public class yacc {
         this.prodExpr = new ArrayList<expression>();
         this.nonTerSyb = new ArrayList<token>();
         this.terSyb = new ArrayList<token>();
-        token epsilonToken = new token(0, "EPSILON");
-        token rEndToken = new token(1, "DOLLARR");
+        token epsilonToken = constoken.terSybList.get(0);
+        token rEndToken = constoken.terSybList.get(1);
         this.terSyb.add(epsilonToken);
         this.terSyb.add(rEndToken);
         File file = new File("rule.txt");
@@ -87,14 +88,25 @@ public class yacc {
                                 }
                             }
                             if (!haveToken) {
-                                token nToken = new token(this.terSyb.size(), temp[i]);
-                                expr.rPart.add(nToken);
-                                this.terSyb.add(nToken);
+                                token nToken = this.terSyb.get(0);
+                                boolean haveFound = false;
+                                for (int j = 0; j < constoken.terSybList.size(); ++j) {
+                                    nToken = constoken.terSybList.get(j);
+                                    if (nToken.symbol.equals(temp[i])) {
+                                        haveFound = true;
+                                        break;
+                                    }
+                                }
+                                if (haveFound) {
+                                    expr.rPart.add(nToken);
+                                    this.terSyb.add(nToken);
+                                }
+                                else {
+                                    System.out.println("Fatal error: cannot support such terminal symbol");
+                                }
                             }
                         }
                     }
-
-                    // TODO: add new expression to expression list
                     this.prodExpr.add(expr);
                 }
                 else {
@@ -200,6 +212,4 @@ public class yacc {
         }
         return follow;
     }
-
-    
 }
