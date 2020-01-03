@@ -1,30 +1,12 @@
 # 编译原理实验
 
-这是编译原理实验的合集，包含两个实验：词法分析器、语法分析器，详细信息如下
+编译原理实验报告集合，包含词法分析器实验与语法分析器实验
 
 ## 词法分析器
 
-本说明文件应该包含以下内容
-
-+ 实验目的
-
-+ 实验内容
-
-+ 实验方法
-
-+ 实验假设
-
-+ 相关有限自动机的描述
-
-+ 重要数据结构表述
-
-+ 核心算法的描述
-
-+ 测试实例
-
 ### 实验目的
 
-完成实验
+通过对词法分析器的构造，了解词法分析器的基本工作原理以及其构造方法，深入了解有限自动机的原理以及实现
 
 ### 实验内容
 
@@ -44,74 +26,76 @@
 
 实现的符号有：
 
-TODO: 所有的index需要+2，因为要给epsilon and dollar r留下空间
-
-|index  |symbol |token  |
-|-------|-------|-------|
-|0      |epsilon|EPSILON|
-|1      |dollarr|DOLLARR|
-|2      |{      |lB     |
-|3      |}      |rB     |
-|4      |[      |lb     |
-|5      |]      |rb     |
-|6      |(      |lc     |
-|7      |)      |rc     |
-|8      |>      |gr     |
-|9      |<      |ls     |
-|10     |>=     |ge     |
-|11      |<=     |le     |
-|12     |!=     |ne     |
-|13     |==     |eq     |
-|14     |+      |ad     |
-|15     |-      |sb     |
-|16     |*      |mt     |
-|17     |/      |dv     |
-|18     |%      |md     |
-|19     |++     |ic     |
-|20     |--     |dc     |
-|21     |+=     |cad    |
-|22     |-=     |csb    |
-|23     |*=     |cmt    |
-|24     |/=     |cdv    |
-|25     |%=     |cmd    |
-|26     |&&     |and    |
-|27     |\|\|   |or     |
-|28     |!      |not    |
-|29     |=      |as     |
-|30     |^      |bxor   |
-|31     |&      |band   |
-|32     |\|     |bor    |
-|33     |<<     |blm    |
-|34     |>>     |brm    |
-|35     |[+-]?[0-9]+|INTEGER|
-|36     |".*"   |STRING |
-|37     |[a-z][a-zA-Z0-9]*|ID     |
-|38     |break  |BREAK  |
-|39     |case   |CASE   |
-|40     |char   |CHAR   |
-|41     |continue|CONTINUE|
-|42     |default|DEFAULT|
-|43     |do     |DO     |
-|44     |else   |ELSE   |
-|45     |for    |FOR    |
-|46     |if     |IF     |
-|47     |int    |INT    |
-|48     |long   |LONG   |
-|49     |main   |MAIN   |
-|50     |return |RETURN |
-|51     |short  |SHORT  |
-|52     |switch |SWITCH |
-|53     |unsigned|UNSIGNED|
-|54     |while  |WHILE  |
-|55     |;      |SEMICOLON|
-|56     |".*"   |CHARS |
-|57     |,      |COMMA  |
+|index  |symbol             |token      |
+|-------|-------------------|-----------|
+|0      |epsilon            |EPSILON    |
+|1      |dollarr            |DOLLARR    |
+|2      |{                  |lB         |
+|3      |}                  |rB         |
+|4      |[                  |lb         |
+|5      |]                  |rb         |
+|6      |(                  |lc         |
+|7      |)                  |rc         |
+|8      |>                  |gr         |
+|9      |<                  |ls         |
+|10     |>=                 |ge         |
+|11     |<=                 |le         |
+|12     |!=                 |ne         |
+|13     |==                 |eq         |
+|14     |+                  |ad         |
+|15     |-                  |sb         |
+|16     |*                  |mt         |
+|17     |/                  |dv         |
+|18     |%                  |md         |
+|19     |++                 |ic         |
+|20     |--                 |dc         |
+|21     |+=                 |cad        |
+|22     |-=                 |csb        |
+|23     |*=                 |cmt        |
+|24     |/=                 |cdv        |
+|25     |%=                 |cmd        |
+|26     |&&                 |and        |
+|27     |\|\|               |or         |
+|28     |!                  |not        |
+|29     |=                  |as         |
+|30     |^                  |bxor       |
+|31     |&                  |band       |
+|32     |\|                 |bor        |
+|33     |<<                 |blm        |
+|34     |>>                 |brm        |
+|35     |[+-]?[0-9]+        |INTEGER    |
+|36     |".*"               |STRING     |
+|37     |[a-z][a-zA-Z0-9]*  |ID         |
+|38     |break              |BREAK      |
+|39     |case               |CASE       |
+|40     |char               |CHAR       |
+|41     |continue           |CONTINUE   |
+|42     |default            |DEFAULT    |
+|43     |do                 |DO         |
+|44     |else               |ELSE       |
+|45     |for                |FOR        |
+|46     |if                 |IF         |
+|47     |int                |INT        |
+|48     |long               |LONG       |
+|49     |main               |MAIN       |
+|50     |return             |RETURN     |
+|51     |short              |SHORT      |
+|52     |switch             |SWITCH     |
+|53     |unsigned           |UNSIGNED   |
+|54     |while              |WHILE      |
+|55     |;                  |SEMICOLON  |
+|56     |".*"               |CHARS      |
+|57     |,                  |COMMA      |
 
 > Tips: 状态36是一个错误状态，在代码运行的过程中不会出现，因为处理代码的时候没有考虑到引号的问题，后来发现问题后用状态56来代替了
 
 ### 实验假设
 
-好像没什么假设
++ 假设对于函数或者变量的命名法遵循驼峰命名法
+
++ 假设常数变量中只包含整数型变量
+
++ 假设不包含注释
 
 ### 相关有限自动机的描述
 
@@ -169,7 +153,7 @@ public List<token> scan() {
 ### 测试实例
 
 ```c
-// Input string
+// Input string, note that comments are excluded
 int main() {
     int i;
     for (i=0; i<100; i=i+1) {
@@ -247,27 +231,9 @@ int main() {
 
 ## 语法分析器
 
-本说明文件应该包含以下内容
-
-+ 实验目的
-
-+ 实验内容
-
-+ 实验方法
-
-+ 实验假设
-
-+ 相关有限自动机的描述
-
-+ 重要数据结构表述
-
-+ 核心算法的描述
-
-+ 测试实例
-
 ### 实验目的
 
-完成实验
+通过实验深入了解LR分析法的思想，加强对有限自动机的理解以及应用
 
 ### 实验内容
 
@@ -285,78 +251,78 @@ int main() {
 
 实现的语法集合有
 
-|index|left|right|
-|-|----|-----|
-|0|s|pro|
-|1|pro|decls funcs main|
-|2|decls|declf decls|
-|3|decls|declv decls|
-|4|decls|EPSILON|
-|5|declf|type ID ( argv ) ;|
-|6|argv|args|
-|7|argv|EPSILON|
-|8|args|arg , args|
-|9|args|arg|
-|10|arg|type ID|
-|11|declv|type ID ;|
-|12|declv|type ID = expr ;|
-|13|funcs|func funcs|
-|14|funcs|EPSILON|
-|15|func|type ID ( argv ) { stmts }|
-|16|stmts|stmt stmts|
-|17|stmts|EPSILON|
-|18|stmt|declv|
-|19|stmt|asgn ;|
-|20|stmt|loopf|
-|21|stmt|loopw|
-|22|stmt|seli|
-|23|stmt|ret|
-|24|asgn|ID = expr|
-|25|loopf|FOR ( asgn ; judge ; asgn ) { stmts }|
-|26|loopw|WHILE ( judge ) { stmts }|
-|27|seli|IF ( judge ) { stmts } ELSE sele|
-|28|sele|seli|
-|29|sele|{ stmts }|
-|30|ret|RETURN expr ;|
-|31|expr|term|
-|32|expr|term + expr|
-|33|expr|term - expr|
-|34|term|fact|
-|35|term|fact * term|
-|36|term|fact / term|
-|37|term|fact % term|
-|38|fact|( expr )|
-|39|fact|value|
-|40|value|INTEGER|
-|41|value|call|
-|42|value|ID|
-|43|call|ID ( parav )|
-|44|parav|paras|
-|45|parav|EPSILON|
-|46|paras|para , paras|
-|47|paras|para|
-|48|para|ID|
-|49|para|INTEGER|
-|50|para|STRING|
-|51|judge|bexpr|
-|52|bexpr|bterm|
-|53|bexpr|bterm || bexpr|
-|54|bterm|bfact|
-|55|bterm|bfact && bterm|
-|56|bfact|! bfact|
-|57|bfact|( bexpr )|
-|58|bfact|expr cmpop expr|
-|59|main|type MAIN ( ) { stmts }|
-|60|type|CHAR|
-|61|type|SHORT|
-|62|type|INT|
-|63|type|LONG|
-|64|cmpop|>=|
-|65|cmpop|>|
-|66|cmpop|<=|
-|67|cmpop|<|
-|68|cmpop|==|
-|69|cmpop|!=|
+|index  |left   |right          |
+|-------|-------|---------------|
+|0      |s      |pro|
+|1      |pro    |decls funcs main|
+|2      |decls  |declf decls|
+|3      |decls  |declv decls|
+|4      |decls  |EPSILON|
+|5      |declf  |type ID ( argv ) ;|
+|6      |argv   |args|
+|7      |argv   |EPSILON|
+|8      |args   |arg , args|
+|9      |args   |arg|
+|10     |arg    |type ID|
+|11     |declv  |type ID ;|
+|12     |declv  |type ID = expr ;|
+|13     |funcs  |func funcs|
+|14     |funcs  |EPSILON|
+|15     |func   |type ID ( argv ) { stmts }|
+|16     |stmts  |stmt stmts|
+|17     |stmts  |EPSILON|
+|18     |stmt   |declv|
+|19     |stmt   |asgn ;|
+|20     |stmt   |loopf|
+|21     |stmt   |loopw|
+|22     |stmt   |seli|
+|23     |stmt   |ret|
+|24     |asgn   |ID = expr|
+|25     |loopf  |FOR ( asgn ; judge ; asgn ) { stmts }|
+|26     |loopw  |WHILE ( judge ) { stmts }|
+|27     |seli   |IF ( judge ) { stmts } ELSE sele|
+|28     |sele   |seli|
+|29     |sele   |{ stmts }|
+|30     |ret    |RETURN expr ;|
+|31     |expr   |term|
+|32     |expr   |term + expr|
+|33     |expr   |term - expr|
+|34     |term   |fact|
+|35     |term   |fact * term|
+|36     |term   |fact / term|
+|37     |term   |fact % term|
+|38     |fact   |( expr )|
+|39     |fact   |value|
+|40     |value  |INTEGER|
+|41     |value  |call|
+|42     |value  |ID|
+|43     |call   |ID ( parav )|
+|44     |parav  |paras|
+|45     |parav  |EPSILON|
+|46     |paras  |para , paras|
+|47     |paras  |para|
+|48     |para   |ID|
+|49     |para   |INTEGER|
+|50     |para   |STRING|
+|51     |judge  |bexpr|
+|52     |bexpr  |bterm|
+|53     |bexpr  |bterm || bexpr|
+|54     |bterm  |bfact|
+|55     |bterm  |bfact && bterm|
+|56     |bfact  |! bfact|
+|57     |bfact  |( bexpr )|
+|58     |bfact  |expr cmpop expr|
+|59     |main   |type MAIN ( ) { stmts }|
+|60     |type   |CHAR|
+|61     |type   |SHORT|
+|62     |type   |INT|
+|63     |type   |LONG|
+|64     |cmpop  |>=|
+|65     |cmpop  |>|
+|66     |cmpop  |<=|
+|67     |cmpop  |<|
+|68     |cmpop  |==|
+|69     |cmpop  |!=|
 
 ### 实验假设
 
@@ -452,9 +418,9 @@ public class operate {
 
 1. 计算First与Follow
 
-2. 计算PPT
+2. 计算LRPT
 
-3. 通过PPT分析token序列
+3. 通过LRPT分析token序列
 
 ### 测试实例
 
@@ -735,7 +701,7 @@ Parse success!
 
 在编写词法分析程序的时候，一开始使用的是C++，实际上已经完成了从正则表达式到DFA的转换算法了，但是在测试的过程中出现了一个不可解决的bug（在stl容器方面），当时考虑到python在内存管理方面对于我而言存在了许多的未知性，所以选择了现在的Java开发
 
-在实验的过程中也出现了很多的bug，比如说语法定义的时候少了一个分号，然后在分析的过程中在PPT中找不到对应的跳转项，虽然按理说找不到跳转项就应该认为是报错，但是这样庞大的一个工程有怎么能说自己写的是对的呢？然后一步步分析栈顶状态与读头下的词法单元，发现了语法设计上的漏洞，并及时改正
+在实验的过程中也出现了很多的bug，比如说语法定义的时候少了一个分号，然后在分析的过程中在LRPT中找不到对应的跳转项，虽然按理说找不到跳转项就应该认为是报错，但是这样庞大的一个工程有怎么能说自己写的是对的呢？然后一步步分析栈顶状态与读头下的词法单元，发现了语法设计上的漏洞，并及时改正
 
 ## 实验感受
 

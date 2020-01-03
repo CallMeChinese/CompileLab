@@ -16,8 +16,8 @@ public class Lab {
         // }
         parser myParser = new parser();
         myParser.MakeAllGroups();
-        myParser.MakePPT();
-        myParser.ExportPPT();
+        myParser.MakeLRPT();
+        myParser.ExportLRPT();
         myParser.parse(tokenSeq);
     }
 }

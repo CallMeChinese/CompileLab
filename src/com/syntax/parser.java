@@ -128,7 +128,7 @@ public class parser {
         return 0;
     }
 
-    public int MakePPT() {
+    public int MakeLRPT() {
         for (int i = 0; i < this.states.size(); ++i) {
             for (int j = 0; j < this.states.get(i).items.size(); ++j) {
                 item myItem = this.states.get(i).items.get(j);
@@ -161,8 +161,8 @@ public class parser {
         return 0;
     }
 
-    public int ExportPPT() {
-        File file = new File("PPT.txt");
+    public int ExportLRPT() {
+        File file = new File("LRPT.txt");
         try {
             FileWriter out = new FileWriter(file);
             BufferedWriter writer = new BufferedWriter(out);
